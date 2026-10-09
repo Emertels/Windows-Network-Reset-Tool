@@ -1,12 +1,14 @@
-# Windows Network Reset Tool
-
-**Version:** 1.0.0  
-**Interface languages:** Brazilian Portuguese, English, Spanish, French, German, Italian, Japanese, Korean, Simplified Chinese, and Russian. The program detects Windows UI culture and uses Brazilian Portuguese for unsupported locales.
-
-## What it does
+# 🌐 Windows Network Reset Tool
 
 One-click elevated workflow to refresh DNS, DHCP, Winsock, and TCP/IP settings.
 
+[![Português (Brasil)](https://img.shields.io/badge/DOCUMENTA%C3%87%C3%83O-PORTUGU%C3%8AS%20(BRASIL)-green?style=for-the-badge)](README.md) [![Documentation](https://img.shields.io/badge/DOCUMENTATION-ENGLISH-0070F3?style=for-the-badge)](README-EN.md)
+
+![Version](https://img.shields.io/badge/Version-v1.0.0-blue?style=flat-square) ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square) ![Platform](https://img.shields.io/badge/Platform-Windows-0078D4?style=flat-square) ![Languages](https://img.shields.io/badge/Languages-10%20auto--detected-2ea44f?style=flat-square)
+
+[Portuguese changelog](CHANGELOG-PT-BR.md) · [English changelog](CHANGELOG-EN.md) · [MIT License](LICENSE)
+
+---
 ## Files
 
 Network-Reset-Tool.bat (single-file Batch utility; no separate PS1 script)
@@ -20,34 +22,26 @@ Network-Reset-Tool.bat (single-file Batch utility; no separate PS1 script)
 
 Windows 10 or Windows 11, built-in Windows PowerShell 5.1 to request UAC elevation, and administrator privileges. Network commands run from Batch; winget is not required.
 
-## Safety and limitations
+## Reset sequence
 
-The project must not remove personal data, credentials, or content outside paths defined by the tool. Command and feature availability depends on Windows edition and version. Review CHANGELOG.md before updating.
+With no menu, the Batch file flushes DNS, releases the DHCP lease, requests a new address, and resets Winsock/TCP/IP. Connectivity may drop temporarily; the script does not restart the PC. Record static IP/DNS, VPN, proxy, or organization-specific settings first because you may need to restore them. Test the connection afterward.
 
-## Development
+### Available languages
 
-See AGENTS-PT-BR.md and AGENTS-EN.md. The default interface language follows Windows UI culture; Brazilian Portuguese is the fallback.
+Detected from Windows settings; Brazilian Portuguese is the fallback.
 
-## Languages, purpose, and tips
-
-The interface supports Brazilian Portuguese, English, Spanish, French, German, Italian, Japanese, Korean, Simplified Chinese, and Russian. It detects Windows UI culture and uses Brazilian Portuguese as the fallback.
-
-The procedure flushes DNS, releases and renews DHCP, and resets Winsock/TCP/IP. Record static IP, custom DNS, and VPN settings first. The tool does not restart the computer automatically; restart to complete the reset.
-
-### Idiomas disponíveis / Available languages
-
-| Language | Locale | Used for |
-|---|---|---|
-| Brazilian Portuguese | pt-BR | Brazilian Windows; fallback for unsupported locales |
-| English | en | English Windows |
-| Spanish | es | Spanish Windows |
-| French | fr | French Windows |
-| German | de | German Windows |
-| Italian | it | Italian Windows |
-| Japanese | ja | Japanese Windows |
-| Korean | ko | Korean Windows |
-| Simplified Chinese | zh-CN | Simplified Chinese Windows |
-| Russian | ru | Russian Windows |
+| Language | Locale | Typical system |
+|---|---|
+| Brazilian Portuguese | pt-BR | Brazilian Windows; also the fallback language. |
+| English | en | English Windows. |
+| Spanish | es | Spanish Windows. |
+| French | fr | French Windows. |
+| German | de | German Windows. |
+| Italian | it | Italian Windows. |
+| Japanese | ja | Japanese Windows. |
+| Korean | ko | Korean Windows. |
+| Simplified Chinese | zh-CN | Simplified Chinese Windows. |
+| Russian | ru | Russian Windows. |
 
 ## 👨‍💻 About the Author
 

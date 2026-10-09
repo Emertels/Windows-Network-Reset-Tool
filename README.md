@@ -1,27 +1,47 @@
-# Windows Network Reset Tool
+# 🌐 Ferramenta de Redefinição de Rede do Windows 🇧🇷
 
-![Latest Release](https://img.shields.io/github/v/release/Emertels/Windows-Network-Reset-Tool) ![MIT License](https://img.shields.io/github/license/Emertels/Windows-Network-Reset-Tool)
+Fluxo com elevação para renovar DNS, DHCP, Winsock e configurações TCP/IP.
 
-**Version:** 1.0.0  |  **License:** MIT
+[![Documentação](https://img.shields.io/badge/DOCUMENTA%C3%87%C3%83O-PORTUGU%C3%8AS%20(BRASIL)-green?style=for-the-badge)](README.md) [![Documentation](https://img.shields.io/badge/DOCUMENTATION-ENGLISH-0070F3?style=for-the-badge)](README-EN.md)
 
-One-click utility to renew DHCP and reset common Windows connectivity components.
+![Versão](https://img.shields.io/badge/Vers%C3%A3o-v1.0.0-blue?style=flat-square) ![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-green?style=flat-square) ![Plataforma](https://img.shields.io/badge/Plataforma-Windows-0078D4?style=flat-square) ![Idiomas](https://img.shields.io/badge/Idiomas-10%20auto--detectados-2ea44f?style=flat-square)
 
-- [Português (Brasil)](README-PT-BR.md)
-- [English](README-EN.md)
-- [Changelog PT-BR](CHANGELOG-PT-BR.md) · [Changelog EN](CHANGELOG-EN.md)
-- [Agent instructions / Instruções para agentes](AGENTS.md)
-- [MIT License](LICENSE)
-- [v1.0.0 release and portable ZIP](https://github.com/Emertels/Windows-Network-Reset-Tool/releases/tag/v1.0.0)
+[Changelog PT-BR](CHANGELOG-PT-BR.md) · [English changelog](CHANGELOG-EN.md) · [Licença MIT](LICENSE)
 
 ---
+## Arquivos
 
-## Português (Brasil)
+Network-Reset-Tool.bat (arquivo único; não depende de um script PS1 separado)
 
-Ferramenta em um clique para renovar DHCP e redefinir componentes comuns da conectividade do Windows.
+## Como usar
 
-## English
+1. Baixe ou clone o repositório completo.
+2. Execute `Network-Reset-Tool.bat`. Aceite o UAC quando solicitado; a redefinição pode interromper temporariamente a conexão.
 
-One-click utility to renew DHCP and reset common Windows connectivity components.
+## Requisitos
+
+Windows 10 ou Windows 11, PowerShell 5.1 integrado para solicitar a elevação do UAC e privilégios de administrador. Os comandos de rede são executados pelo próprio Batch; winget não é necessário.
+
+## Etapas
+
+Sem menu, o Batch limpa o cache DNS, libera a concessão DHCP, solicita um novo endereço e redefine Winsock/TCP/IP. A rede pode cair temporariamente; o script não reinicia o computador. Se usa IP/DNS estático, VPN, proxy ou configuração corporativa, anote os dados antes: talvez precise reaplicá-los. Teste a conexão ao terminar.
+
+### Idiomas disponíveis
+
+Detectados pela configuração do Windows; PT-BR é o fallback.
+
+| Idioma | Código | Uso |
+|---|---|
+| Português (Brasil) | pt-BR | Interface PT-BR; também é o idioma alternativo. |
+| Inglês | en | Interface em inglês. |
+| Espanhol | es | Interface em espanhol. |
+| Francês | fr | Interface em francês. |
+| Alemão | de | Interface em alemão. |
+| Italiano | it | Interface em italiano. |
+| Japonês | ja | Interface em japonês. |
+| Coreano | ko | Interface em coreano. |
+| Chinês simplificado | zh-CN | Interface em chinês simplificado. |
+| Russo | ru | Interface em russo. |
 
 ## 👨‍💻 Sobre o Autor
 
