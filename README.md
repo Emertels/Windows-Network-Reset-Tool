@@ -1,48 +1,37 @@
-# 🌐 Ferramenta de Redefinição de Rede do Windows 🇧🇷
+# 🔄 Ferramenta de Redefinição de Rede do Windows 🇧🇷
 
-Fluxo com elevação para renovar DNS, DHCP, Winsock e configurações TCP/IP.
+<div align="center">
 
-[![Documentação](https://img.shields.io/badge/DOCUMENTA%C3%87%C3%83O-PORTUGU%C3%8AS%20(BRASIL)-green?style=for-the-badge)](README.md) [![Documentation](https://img.shields.io/badge/DOCUMENTATION-ENGLISH-0070F3?style=for-the-badge)](README-EN.md)
+**🌐 Idiomas / Languages:**  
+[![Documentação PT-BR](https://img.shields.io/badge/Documenta%C3%A7%C3%A3o-Portugu%C3%AAs%20(Brasil)-green?style=for-the-badge)](README.md)
+[![Documentation EN](https://img.shields.io/badge/Documentation-English-0070F3?style=for-the-badge)](README-EN.md)
 
-![Versão](https://img.shields.io/badge/Vers%C3%A3o-v1.0.0-blue?style=flat-square) ![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-green?style=flat-square) ![Plataforma](https://img.shields.io/badge/Plataforma-Windows-0078D4?style=flat-square) ![Idiomas](https://img.shields.io/badge/Idiomas-10%20auto--detectados-2ea44f?style=flat-square)
+![Versão](https://img.shields.io/badge/Vers%C3%A3o-v1.0.0-blue?style=for-the-badge)
+![Licença](https://img.shields.io/badge/Licen%C3%A7a-MIT-green?style=for-the-badge)
+![Plataforma](https://img.shields.io/badge/Plataforma-Windows%2010%20%7C%2011-0078D4?style=for-the-badge)
+![Idiomas](https://img.shields.io/badge/Idiomas-10%20Nativos-2ea44f?style=for-the-badge)
 
-[Changelog PT-BR](CHANGELOG-PT-BR.md) · [English changelog](CHANGELOG-EN.md) · [Licença MIT](LICENSE)
+</div>
 
 ---
-## Arquivos
 
-Network-Reset-Tool.bat (arquivo único; não depende de um script PS1 separado)
+Ferramenta definitiva para restauração e reset completo da pilha de rede TCP/IP, Winsock, DNS e concessões DHCP no Windows 10 e 11.
 
-## Como usar
+## 🚀 Principais Recursos
+- **Reset de TCP/IP & Winsock:** Restaura catálogos corrompidos e tabelas de roteamento.
+- **Renovação de Concessões DHCP:** Executa liberação cirúrgica e renovação imediata de IP.
+- **Limpeza de Cache DNS & ARP:** Esvazia tabelas de cache para solucionar falhas de resolução de nomes.
+- **Verificação Pós-Reset:** Executa testes de ping e diagnóstico de conectividade pós-limpeza.
 
-1. Baixe ou clone o repositório completo.
-2. Execute `Network-Reset-Tool.bat`. Aceite o UAC quando solicitado; a redefinição pode interromper temporariamente a conexão.
+## 📦 Como Usar
+1. Baixe o pacote na seção [Releases](https://github.com/Emertels/Windows-Network-Reset-Tool/releases/latest).
+2. Clique com botão direito em `Network-Reset-Tool.bat` e escolha **Executar como Administrador**.
+3. Siga as etapas na tela e, se solicitado, reinicie o computador para concluir a redefinição.
 
-## Requisitos
+> [!NOTE]
+> Durante o reset de rede, a conexão com a internet pode ser momentaneamente interrompida enquanto os adaptadores são reiniciados.
 
-Windows 10 ou Windows 11, PowerShell 5.1 integrado para solicitar a elevação do UAC e privilégios de administrador. Os comandos de rede são executados pelo próprio Batch; winget não é necessário.
-
-## Etapas
-
-Sem menu, o Batch limpa o cache DNS, libera a concessão DHCP, solicita um novo endereço e redefine Winsock/TCP/IP. A rede pode cair temporariamente; o script não reinicia o computador. Se usa IP/DNS estático, VPN, proxy ou configuração corporativa, anote os dados antes: talvez precise reaplicá-los. Teste a conexão ao terminar.
-
-### Idiomas disponíveis
-
-Detectados pela configuração do Windows; PT-BR é o fallback.
-
-| Idioma | Código | Uso |
-|---|---|
-| Português (Brasil) | pt-BR | Interface PT-BR; também é o idioma alternativo. |
-| Inglês | en | Interface em inglês. |
-| Espanhol | es | Interface em espanhol. |
-| Francês | fr | Interface em francês. |
-| Alemão | de | Interface em alemão. |
-| Italiano | it | Interface em italiano. |
-| Japonês | ja | Interface em japonês. |
-| Coreano | ko | Interface em coreano. |
-| Chinês simplificado | zh-CN | Interface em chinês simplificado. |
-| Russo | ru | Interface em russo. |
-
+---
 ## 👨‍💻 Sobre o Autor
 
 Desenvolvido e mantido por **Emerson Teles** (conhecido na comunidade como **Emertels**).
