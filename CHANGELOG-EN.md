@@ -23,3 +23,5 @@
 - Usage, dependency, and required-file documentation was reviewed to match current project behavior.
 
 - Aligns the author, projects, and official communities section with the Antigravity reference repository.
+
+- Fixes Batch line endings, configures UTF-8 without CHCP, relaunches elevation through CMD, and keeps UAC failures visible until a key is pressed.

@@ -3,7 +3,7 @@ setlocal EnableExtensions DisableDelayedExpansion
 color 07
 title Windows Network Reset Tool v1.0.0
 rem Configura UTF-8 pela API do console para preservar acentos sem executar CHCP.
-powershell.exe -NoLogo -NoProfile -Command "[Console]::OutputEncoding=[Text.Encoding]::UTF8; [Console]::InputEncoding=[Text.Encoding]::UTF8"
+powershell.exe -NoLogo -NoProfile -Command "try { $b='dXNpbmcgU3lzdGVtOwp1c2luZyBTeXN0ZW0uUnVudGltZS5JbnRlcm9wU2VydmljZXM7CnB1YmxpYyBzdGF0aWMgY2xhc3MgQ29uc29sZVNldHVwIHsKICAgIFtTdHJ1Y3RMYXlvdXQoTGF5b3V0S2luZC5TZXF1ZW50aWFsKV0gcHVibGljIHN0cnVjdCBDb29yZCB7IHB1YmxpYyBzaG9ydCBYOyBwdWJsaWMgc2hvcnQgWTsgfQogICAgW1N0cnVjdExheW91dChMYXlvdXRUaW5kLlNlcXVlbnRpYWwsIENoYXJTZXQ9Q2hhclNldC5Vbmljb2RlKV0gcHVibGljIHN0cnVjdCBGb250SW5mbyB7IHB1YmxpYyB1aW50IFNpemU7IHB1YmxpYyB1aW50IEluZGV4OyBwdWJsaWMgQ29vcmQgQ2VsbFNpemU7IHB1YmxpYyB1aW50IEZhbWlseTsgcHVibGljIHVpbnQgV2VpZ2h0OyBbTWFyc2hhbEFzKFVubWFuYWdlZFR5cGUuQnlWYWxUU3RyLCBTaXplQ29uc3Q9MzIpXSBwdWJsaWMgc3RyaW5nIEZhY2U7IH0KICAgIFtEbGxJbXBvcnQoImtlcm5lbDMyLmRsbCIpXSBzdGF0aWMgZXh0ZXJuIGJvb2wgU2V0Q29uc29sZU91dHB1dENQKHVpbnQgY3ApOwogICAgW0RsbEltcG9ydCgia2VybmVsMzIuZGxsIildIHN0YXRpYyBleHRlcm4gYm9vbCBTZXRDb25zb2xlQ1AodWludCBjcCk7CiAgICBbRGxsSW1wb3J0KCJrZXJuZWwzMi5kbGwiKV0gc3RhdGljIGV4dGVybiBJbnRQdHIgR2V0U3RkSGFuZGxlKGludCBuKTsKICAgIFtEbGxJbXBvcnQoImtlcm5lbDMyLmRsbCIpXSBzdGF0aWMgZXh0ZXJuIGJvb2wgR2V0Q3VycmVudENvbnNvbGVGb250RXgoSW50UHRyIGgsIGJvb2wgbWF4LCByZWYgRm9udEluZm8gaW5mbyk7CiAgICBbRGxsSW1wb3J0KCJrZXJuZWwzMi5kbGwiKV0gc3RhdGljIGV4dGVybiBib29sIFNldEN1cnJlbnRDb25zb2xlRm9udEV4KEludFB0ciBoLCBib29sIG1heCwgcmVmIEZvbnRJbmZvIGluZm8pOwogICAgcHVibGljIHN0YXRpYyB2b2lkIFByZXBhcmUoKSB7IFNldENvbnNvbGVPdXRwdXRDUCg2NTAwMSk7IFNldENvbnNvbGVDUCg2NTAwMSk7IEludFB0ciBoPUdldFN0ZEhhbmRsZSgtMTEpOyBGb250SW5mbyBpPW5ldyBGb250SW5mbygpOyBpLlNpemU9KHVpbnQpTWFyc2hhbC5TaXplT2YodHlwZW9mKEZvbnRJbmZvKSk7IGlmKGg9PUludFB0ci5aZXJvfHxoPT1uZXcgSW50UHRyKC0xKXx8IUdldEN1cnJlbnRDb25zb2xlRm9udEV4KGgsZmFsc2UscmVmIGkpKSByZXR1cm47IGkuV2VpZ2h0PTQwMDsgU2V0Q3VycmVudENvbnNvbGVGb250RXgoaCxmYWxzZSxyZWYgaSk7IH0KfQ=='; $src=[Text.Encoding]::UTF8.GetString([Convert]::FromBase64String($b)); Add-Type -TypeDefinition $src -ErrorAction Stop; [ConsoleSetup]::Prepare() } catch { }; [Console]::OutputEncoding=[Text.Encoding]::UTF8; [Console]::InputEncoding=[Text.Encoding]::UTF8"
 
 set "LANG=pt-BR"
 set "UI_CULTURE="
@@ -24,8 +24,13 @@ if not defined SESSION_TIME set "SESSION_TIME=%date% %time%"
 fltmc >nul 2>&1
 if errorlevel 1 (
     echo %ADMIN_REQUIRED%
-    powershell.exe -NoProfile -ExecutionPolicy Bypass -Command "Start-Process -FilePath '%~f0' -Verb RunAs" >nul 2>&1
-    if errorlevel 1 echo %ELEVATION_FAILED%
+    set "EMERTELS_RESET_PATH=%~f0"
+    powershell.exe -NoLogo -NoProfile -ExecutionPolicy Bypass -EncodedCommand JABzAGMAcgBpAHAAdABQAGEAdABoAD0AJABlAG4AdgA6AEUATQBFAFIAVABFAEwAUwBfAFIARQBTAEUAVABfAFAAQQBUAEgAOwAkAGEAcgBnAHUAbQBlAG4AdABzAD0AJwAvAGQAIAAvAGMAIAAiACIAJwArACQAcwBjAHIAaQBwAHQAUABhAHQAaAArACcAIgAiACcAOwB0AHIAeQB7AFMAdABhAHIAdAAtAFAAcgBvAGMAZQBzAHMAIAAtAEYAaQBsAGUAUABhAHQAaAAgACQAZQBuAHYAOgBDAG8AbQBTAHAAZQBjACAALQBBAHIAZwB1AG0AZQBuAHQATABpAHMAdAAgACQAYQByAGcAdQBtAGUAbgB0AHMAIAAtAFYAZQByAGIAIABSAHUAbgBBAHMAIAAtAEUAcgByAG8AcgBBAGMAdABpAG8AbgAgAFMAdABvAHAAfQBjAGEAdABjAGgAewBlAHgAaQB0ACAAMQB9AA== >nul 2>&1
+    if errorlevel 1 (
+        echo %ELEVATION_FAILED%
+        echo %CLOSE_PROMPT%
+        pause >nul
+    )
     exit /b 1
 )
 
@@ -79,9 +84,9 @@ set "TITLE=REDEFINIÇÃO AVANÇADA DE REDE"
 set "VERSION_LABEL=Versão"
 set "SESSION_LABEL=Sessão iniciada"
 set "LANGUAGE_LABEL=Idioma detectado"
-set "ADMIN_REQUIRED=Solicitando privilegios de administrador..."
+set "ADMIN_REQUIRED=Solicitando privilégios de administrador..."
 set "ELEVATION_FAILED=Não foi possível solicitar elevação. Execute como administrador."
-set "STEP_DNS=Limpando o caché DNS"
+set "STEP_DNS=Limpando o cache DNS"
 set "STEP_RELEASE=Liberando o endereço IP atual"
 set "STEP_WAIT=Aguardando o roteador"
 set "STEP_RENEW=Solicitando um novo endereço IP"
@@ -94,7 +99,7 @@ set "RESTART_NOTE=Nenhuma reinicialização automática foi solicitada."
 set "CLOSE_PROMPT=Pressione uma tecla para fechar."
 if /i "%LANG%"=="en" (
  set "TITLE=ADVANCED NETWORK RESET"
- set "VERSION_LABEL=Versión"
+ set "VERSION_LABEL=Version"
  set "SESSION_LABEL=Session started"
  set "LANGUAGE_LABEL=Detected language"
  set "ADMIN_REQUIRED=Requesting administrator privileges..."
@@ -115,7 +120,7 @@ if /i "%LANG%"=="es" (
  set "VERSION_LABEL=Versión"
  set "SESSION_LABEL=Sesión iniciada"
  set "LANGUAGE_LABEL=Idioma detectado"
- set "ADMIN_REQUIRED=Solicitando privilegios de administrador..."
+ set "ADMIN_REQUIRED=Solicitando privilégios de administrador..."
  set "ELEVATION_FAILED=No se pudo solicitar la elevación. Ejecute como administrador."
  set "STEP_DNS=Vaciando la caché DNS"
  set "STEP_RELEASE=Liberando la dirección IP actual"
@@ -130,7 +135,7 @@ if /i "%LANG%"=="es" (
 )
 if /i "%LANG%"=="fr" (
  set "TITLE=RÉINITIALISATION AVANCÉE DU RÉSEAU"
- set "VERSION_LABEL=Versión"
+ set "VERSION_LABEL=Version"
  set "SESSION_LABEL=Session démarrée"
  set "LANGUAGE_LABEL=Langue détectée"
  set "ADMIN_REQUIRED=Demande des droits administrateur..."
@@ -148,7 +153,7 @@ if /i "%LANG%"=="fr" (
 )
 if /i "%LANG%"=="de" (
  set "TITLE=ERWEITERTER NETZWERK-RESET"
- set "VERSION_LABEL=Versión"
+ set "VERSION_LABEL=Version"
  set "SESSION_LABEL=Sitzung gestartet"
  set "LANGUAGE_LABEL=Erkannte Sprache"
  set "ADMIN_REQUIRED=Administratorrechte werden angefordert..."

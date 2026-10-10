@@ -23,3 +23,5 @@
 - A documentação de uso, dependências e arquivos necessários foi revisada para corresponder ao comportamento atual do projeto.
 
 - Padroniza a seção do autor, projetos e comunidades oficiais conforme o repositório de referência Antigravity.
+
+- Corrige as quebras de linha do Batch, configura UTF-8 sem CHCP e relança a elevação pelo CMD; mantém a falha do UAC visível até uma tecla ser pressionada.
